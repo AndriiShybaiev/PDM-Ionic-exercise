@@ -1,12 +1,36 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Autor</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div>
-    <h1>Autor</h1>
-    <p>Contenido de ejemplo</p>
-  </div>
+  <ion-card class="ion-padding">
+    <ion-card-header>
+      <ion-card-title>Información</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Aplicación desarrollada por Andrii Shybaiev. A continuación se puede consultar más información sobre el autor.
+    </ion-card-content>
+    <ion-button color="dark" fill="clear">
+      <ion-icon slot="start" name="book-outline"></ion-icon>
+      Portfolio
+    </ion-button>
+    <ion-item>
+      <ion-icon name="mail" slot="start"></ion-icon>
+      <ion-label style="font-weight: bold;">Correo:</ion-label>
+      <a href="mailto:email@email.com">email&#64;email.com</a>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="logo-twitter" slot="start"></ion-icon>
+      <ion-label style="font-weight: bold;">Twitter:</ion-label>
+      <a href="https://autor.me">&#64;twitter</a>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="call" slot="start"></ion-icon>
+      <ion-label style="font-weight: bold;">Teléfono:</ion-label>
+      <a href="tel:999888777">999888777</a>
+    </ion-item>
+
+  </ion-card>
 </ion-content>

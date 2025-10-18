@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common'; // <-- Necesario para @for
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
 import { VideoclubPageRoutingModule } from './videoclub-routing.module';
-
 import { VideoclubPage } from './videoclub.page';
 
 @NgModule({

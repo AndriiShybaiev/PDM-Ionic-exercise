@@ -1,14 +1,37 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
       Inicio
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div>
-    <h1>Inicio</h1>
-    <p>Contenido de ejemplo</p>
-  </div>
+<ion-content class="ion-padding" [fullscreen]="true">
+  <ion-card class="ion-padding">
+    <ion-card-header>
+      <ion-card-subtitle>Bienvenido a</ion-card-subtitle>
+      <ion-card-title>¡Videoclub!</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Videoclub es una aplicación desarrollada con Ionic.</p>
+      <p>Para acceder a la gestión del videoclub pulsa el siguiente botón:</p>
+    </ion-card-content>
+    <ion-button color="dark" fill="clear">
+      <ion-icon slot="start" name="videocam"></ion-icon>
+      Acceso a Videoclub
+    </ion-button>
+  </ion-card>
+  <ion-card class="ion-padding">
+    <ion-card-header>
+      <ion-card-title>Videoclub!</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Aplicación desarrollada por Andrii Shybaiev
+    </ion-card-content>
+    <ion-button color="dark" fill="clear">
+      <ion-icon slot="start" name="person"></ion-icon>
+      Consultar información
+    </ion-button>
+  </ion-card>
+
 </ion-content>
