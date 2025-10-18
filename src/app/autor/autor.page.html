@@ -1,5 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
     <ion-title>Autor</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,7 +15,7 @@
     <ion-card-content>
       Aplicación desarrollada por Andrii Shybaiev. A continuación se puede consultar más información sobre el autor.
     </ion-card-content>
-    <ion-button color="dark" fill="clear">
+    <ion-button color="dark" fill="clear" [routerLink]="['/portfolio']">
       <ion-icon slot="start" name="book-outline"></ion-icon>
       Portfolio
     </ion-button>

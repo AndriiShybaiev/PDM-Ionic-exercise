@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 import * as peliculasData from '../../assets/lista_peliculas.json';
 
 interface Pelicula {
@@ -15,13 +16,16 @@ interface Pelicula {
   standalone: false,
   styleUrls: ['./videoclub.page.scss']
 })
-export class VideoclubPage implements OnInit {
+export class VideoclubPage implements OnInit, OnDestroy {
 
   public peliculas: Pelicula[] = [];
 
-  constructor() { }
+  constructor(private router: Router) {
+    console.log('Constructor VideoclubPage');
+  }
 
   ngOnInit() {
+    console.log('ngOnInit VideoclubPage');
     this.cargarPeliculas();
   }
 
@@ -31,5 +35,33 @@ export class VideoclubPage implements OnInit {
     } else {
       this.peliculas = peliculasData as any;
     }
+  }
+
+  verPaginaDetalle(peli: Pelicula): void {
+    this.router.navigate(['/detalle'], {
+      state: {
+        peliculaSeleccionada: peli
+      }
+    });
+  }
+
+  ionViewWillEnter() {
+    console.log('ionViewWillEnter VideoclubPage');
+  }
+
+  ionViewDidEnter() {
+    console.log('ionViewDidEnter VideoclubPage');
+  }
+
+  ionViewWillLeave() {
+    console.log('ionViewWillLeave VideoclubPage');
+  }
+
+  ionViewDidLeave() {
+    console.log('ionViewDidLeave VideoclubPage');
+  }
+
+  ngOnDestroy() {
+    console.log('ngOnDestroy VideoclubPage');
   }
 }
