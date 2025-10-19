@@ -1,66 +1,48 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import * as peliculasData from '../../assets/lista_peliculas.json';
+import { PeliculasService } from '../services/peliculas.service';
 
-interface Pelicula {
-  title: string;
-  year: string;
-  director: string;
-  poster: string;
-  synopsis: string;
-}
 
 @Component({
   selector: 'app-videoclub',
   templateUrl: './videoclub.page.html',
-  standalone: false,
-  styleUrls: ['./videoclub.page.scss']
+  styleUrls: ['./videoclub.page.scss'],
+  standalone: false
 })
 export class VideoclubPage implements OnInit, OnDestroy {
 
-  public peliculas: Pelicula[] = [];
+  listaPeliculas: any[] = [];
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private peliculasService: PeliculasService
+  ) {
     console.log('Constructor VideoclubPage');
+
+    this.listaPeliculas = this.peliculasService.getPeliculas();
+  }
+
+  verPaginaDetalle(id: number): void {
+    console.log('Enviando id a /detalle:', id);
+
+    this.router.navigate(['/detalle', id]);
   }
 
   ngOnInit() {
     console.log('ngOnInit VideoclubPage');
-    this.cargarPeliculas();
   }
-
-  cargarPeliculas() {
-    if (peliculasData && (peliculasData as any).default) {
-      this.peliculas = (peliculasData as any).default;
-    } else {
-      this.peliculas = peliculasData as any;
-    }
-  }
-
-  verPaginaDetalle(peli: Pelicula): void {
-    this.router.navigate(['/detalle'], {
-      state: {
-        peliculaSeleccionada: peli
-      }
-    });
-  }
-
   ionViewWillEnter() {
     console.log('ionViewWillEnter VideoclubPage');
   }
-
   ionViewDidEnter() {
     console.log('ionViewDidEnter VideoclubPage');
   }
-
   ionViewWillLeave() {
     console.log('ionViewWillLeave VideoclubPage');
   }
-
   ionViewDidLeave() {
     console.log('ionViewDidLeave VideoclubPage');
   }
-
   ngOnDestroy() {
     console.log('ngOnDestroy VideoclubPage');
   }

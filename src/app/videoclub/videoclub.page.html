@@ -1,38 +1,33 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="home"></ion-back-button>
-    </ion-buttons>
     <ion-title>
       Videoclub
     </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
+  <ion-list *ngIf="listaPeliculas">
 
-    @for (peli of peliculas; track peli.title) {
-      <ion-item button detail (click)="verPaginaDetalle(peli)">
+    <ion-item
+      *ngFor="let pelicula of listaPeliculas; index as id"
+      (click)="verPaginaDetalle(id)"
+      button
+      detail>
 
-        <ion-thumbnail slot="start">
-          <img [src]="'assets/' + peli.poster" />
-        </ion-thumbnail>
+      <ion-thumbnail slot="start">
+        <img [src]="'assets/' + pelicula.poster" />
+      </ion-thumbnail>
 
-        <ion-label>
-          <h2>{{ peli.title }}</h2>
-          <p>Director: {{ peli.director }}</p>
-          <p>Año: {{ peli.year }}</p>
-        </ion-label>
+      <ion-label>
+        <h2>{{ pelicula.title }}</h2>
+        <p>Director: {{ pelicula.director }}</p>
+        <p>Año: {{ pelicula.year }}</p>
+      </ion-label>
 
-      </ion-item>
-    } @empty {
-      <ion-item>
-        <ion-label>
-          Cargando películas...
-        </ion-label>
-      </ion-item>
-    }
-
+    </ion-item>
   </ion-list>
 </ion-content>

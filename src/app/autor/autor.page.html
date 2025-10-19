@@ -13,7 +13,7 @@
       <ion-card-title>Información</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      Aplicación desarrollada por Andrii Shybaiev. A continuación se puede consultar más información sobre el autor.
+      Aplicación desarrollada por {{ autor.name }}. A continuación se puede consultar más información sobre el autor.
     </ion-card-content>
     <ion-button color="dark" fill="clear" [routerLink]="['/portfolio']">
       <ion-icon slot="start" name="book-outline"></ion-icon>
@@ -22,17 +22,17 @@
     <ion-item>
       <ion-icon name="mail" slot="start"></ion-icon>
       <ion-label style="font-weight: bold;">Correo:</ion-label>
-      <a href="mailto:email@email.com">email&#64;email.com</a>
+      <a [href]="'mailto:' + autor.email">{{ autor.email }}</a>
     </ion-item>
     <ion-item>
       <ion-icon name="logo-twitter" slot="start"></ion-icon>
       <ion-label style="font-weight: bold;">Twitter:</ion-label>
-      <a href="https://autor.me">&#64;twitter</a>
+      <a [href]="autor.twitter" target="_blank">{{ autor.twitter }}</a>
     </ion-item>
     <ion-item>
       <ion-icon name="call" slot="start"></ion-icon>
       <ion-label style="font-weight: bold;">Teléfono:</ion-label>
-      <a href="tel:999888777">999888777</a>
+      <a [href]="'tel:' + autor.phone">{{ autor.phone }}</a>
     </ion-item>
 
   </ion-card>

@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      {{ pelicula?.title || 'Detalle' }}
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="videoclub"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  @if (pelicula) {
+  <ion-card class="ion-padding">
+    <ion-img [src]="'assets/' + pelicula.poster"></ion-img>
+    <ion-card-header>
+      <ion-card-title>{{pelicula?.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        <strong>Director:</strong> {{ pelicula.director }}
+      </p>
+      <p>
+        <strong>Año:</strong> {{ pelicula.year }}
+      </p>
+      <p>
+        <strong>Sinopsis:</strong> {{ pelicula.synopsis }}
+      </p>
+    </ion-card-content>
+  </ion-card>
+  }
+  @else {
+    <p>No se ha cargado la información de la película.</p>
+  }
+</ion-content>
