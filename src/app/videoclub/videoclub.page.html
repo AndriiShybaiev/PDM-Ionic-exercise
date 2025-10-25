@@ -18,6 +18,7 @@
 </ion-header>
 
 <ion-content>
+  <div *ngIf="listaPeliculas.length; else emptyList">
   <ion-list *ngIf="modoLista; else modoGrid">
 
     <ion-item
@@ -38,14 +39,35 @@
 
     </ion-item>
   </ion-list>
+  </div>
   <ng-template #modoGrid>
     <ion-grid>
       <ion-row>
-        <ion-col size="6" size-sm="4" size-md="3">test</ion-col>
-        <ion-col size="6" size-sm="4" size-md="3">test</ion-col>
-        <ion-col size="6" size-sm="4" size-md="3">test</ion-col>
-        <ion-col size="6" size-sm="4" size-md="3">test</ion-col>
+        <ion-col *ngFor="let pelicula of listaPeliculas; index as id"
+                 size="6" size-sm="4" size-md="3">
+
+          <ion-card (click)="verPaginaDetalle(id)" button>
+
+            <img [src]="'assets/' + pelicula.poster" />
+
+            <ion-card-header>
+              <ion-card-title>{{ pelicula.title }}</ion-card-title>
+              <ion-card-subtitle>{{ pelicula.director }}</ion-card-subtitle>
+            </ion-card-header>
+
+            <ion-card-content>
+              <p>Год: {{ pelicula.year }}</p>
+            </ion-card-content>
+
+          </ion-card>
+
+        </ion-col>
       </ion-row>
     </ion-grid>
+  </ng-template>
+  <ng-template #emptyList>
+    <ion-card class="ion-padding ion-text-center">
+      La lista está vacía
+    </ion-card>
   </ng-template>
 </ion-content>
