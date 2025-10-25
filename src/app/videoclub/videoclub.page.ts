@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { PeliculasService } from '../services/peliculas.service';
+import { PeliculasAPIService } from '../services/peliculasAPI.service';
 
 
 @Component({
@@ -16,11 +16,18 @@ export class VideoclubPage implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private peliculasService: PeliculasService
+    private peliculasAPIService: PeliculasAPIService
   ) {
     console.log('Constructor VideoclubPage');
 
-    this.listaPeliculas = this.peliculasService.getPeliculas();
+  peliculasAPIService.getPeliculas().subscribe(
+      (result: any) => {
+        this.listaPeliculas = result;
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    )
   }
 
   verPaginaDetalle(id: number): void {

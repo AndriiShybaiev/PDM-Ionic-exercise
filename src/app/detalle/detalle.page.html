@@ -10,9 +10,8 @@
 </ion-header>
 
 <ion-content class="ion-padding" [fullscreen]="true">
-  @if (pelicula) {
   <ion-card class="ion-padding">
-    <ion-img [src]="'assets/' + pelicula.poster"></ion-img>
+    <ion-img [src]="pelicula.poster"></ion-img>
     <ion-card-header>
       <ion-card-title>{{pelicula?.title}}</ion-card-title>
     </ion-card-header>
@@ -28,8 +27,4 @@
       </p>
     </ion-card-content>
   </ion-card>
-  }
-  @else {
-    <p>No se ha cargado la información de la película.</p>
-  }
 </ion-content>

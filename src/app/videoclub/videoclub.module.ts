@@ -5,12 +5,14 @@ import { IonicModule } from '@ionic/angular';
 import { VideoclubPageRoutingModule } from './videoclub-routing.module';
 import { VideoclubPage } from './videoclub.page';
 
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    VideoclubPageRoutingModule
+    VideoclubPageRoutingModule,
+
   ],
   declarations: [VideoclubPage]
 })

@@ -21,14 +21,11 @@
   <div *ngIf="listaPeliculas.length; else emptyList">
   <ion-list *ngIf="modoLista; else modoGrid">
 
-    <ion-item
-      *ngFor="let pelicula of listaPeliculas; index as id"
-      (click)="verPaginaDetalle(id)"
-      button
-      detail>
+    <ion-item *ngFor="let pelicula of listaPeliculas"
+              (click)="verPaginaDetalle(pelicula.id)" detail>
 
       <ion-thumbnail slot="start">
-        <img [src]="'assets/' + pelicula.poster" />
+        <ion-img [src]="pelicula.poster"></ion-img>
       </ion-thumbnail>
 
       <ion-label>
@@ -48,7 +45,7 @@
 
           <ion-card (click)="verPaginaDetalle(id)" button>
 
-            <img [src]="'assets/' + pelicula.poster" />
+            <ion-img [src]="pelicula.poster"></ion-img>
 
             <ion-card-header>
               <ion-card-title>{{ pelicula.title }}</ion-card-title>
