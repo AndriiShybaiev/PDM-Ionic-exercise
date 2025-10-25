@@ -12,6 +12,7 @@ import { PeliculasService } from '../services/peliculas.service';
 export class VideoclubPage implements OnInit, OnDestroy {
 
   listaPeliculas: any[] = [];
+  modoLista = true
 
   constructor(
     private router: Router,
@@ -45,5 +46,9 @@ export class VideoclubPage implements OnInit, OnDestroy {
   }
   ngOnDestroy() {
     console.log('ngOnDestroy VideoclubPage');
+  }
+
+  cambiarVista() {
+    this.modoLista = !this.modoLista;
   }
 }
